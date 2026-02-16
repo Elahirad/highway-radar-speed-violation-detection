@@ -18,32 +18,47 @@ Pulsed-radar simulation for **speed-violation detection** on a highway gantry/po
 ## Figures
 
 ### 1) System geometry (top/side view)
-![System geometry](docs/figures/system-geometry1.png)
-![System geometry](docs/figures/system-geometry2.png)
+<center>
+ <img src='docs/figures/system-geometry1.png' width='50%' />
+</center>
+<center>
+ <img src='docs/figures/system-geometry2.png' width='50%' />
+</center>
 
 ---
 
 ### 2) Array layout (Tx vertical, Rx horizontal)
-![Array layout](docs/figures/array-layout.png)
+<center>
+ <img src='docs/figures/array-layout.png' width='50%' />
+</center>
 
 ---
 
 ### 3) Receiver Array pattern
-![Array layout](docs/figures/array-pattern.png)
+<center>
+ <img src='docs/figures/array-pattern.png' width='50%' />
+</center>
 
 ---
 
-### 3) Example Range–Doppler map (one scenario)
-![Range-Doppler example](docs/figures/range-doppler.png)
-
-
-### 4) MUSIC spectrum (AoA estimation)
-![MUSIC spectrum](docs/figures/aoa.png)
+### 4) Example Range–Doppler map
+<center>
+ <img src='docs/figures/range-doppler.png' width='50%' />
+</center>
 
 ---
 
-### 5) Detection output (console/table snapshot)
-![Detection output](docs/figures/detections.png)
+### 5) MUSIC spectrum (AoA estimation)
+<center>
+ <img src='docs/figures/aoa.png' width='50%' />
+</center>
+
+---
+
+### 6) Detection output
+<center>
+ <img src='docs/figures/detections.png' width='50%' />
+</center>
 
 ## System Overview
 
@@ -51,10 +66,8 @@ Pulsed-radar simulation for **speed-violation detection** on a highway gantry/po
 - Radar height: **h = 5 m**
 - Targets: vehicles moving along the road with azimuth angle relative to boresight.
 - Slant range is modeled as:
-  $$
-  R = \sqrt{h^2 + \left(\frac{d}{\cos(\phi)}\right)^2}
-  $$
-  where $ d $ is a ground-distance parameter used in simulation and $ \phi $ is azimuth.
+  $`  R = \sqrt{h^2 + \left(\frac{d}{\cos(\phi)}\right)^2}  `$
+  where $`d`$ is a ground-distance parameter used in simulation and $`\phi`$ is azimuth.
 
 ### RF / Hardware Assumptions (as implemented)
 - Carrier frequency: **fc = 2 GHz**
@@ -85,22 +98,17 @@ Pulsed-radar simulation for **speed-violation detection** on a highway gantry/po
 
 ### Antenna Pattern Model
 A simplified separable approximation:
-$$
-G(\theta,\psi) \propto \cos(\theta)\cos(\psi)
-$$
+$`G(\theta,\psi) \propto \cos(\theta)\cos(\psi)`$
 
 ---
 
 ## Signal / Channel Model (Simulation)
 
 ### Doppler
-$$
-f_d = \frac{2v}{\lambda}
-$$
+$`f_d = \frac{2v}{\lambda}`$
+
 Speed conversion is handled internally (km/h ↔ m/s). Estimation uses:
-$$
-v = \frac{f_d \lambda}{2}
-$$
+$`v = \frac{f_d \lambda}{2}`$
 
 ### Return Model (Simplified)
 The received signal is synthesized by summing contributions of all Tx×Rx×target paths, including:
